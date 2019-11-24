@@ -246,7 +246,7 @@ public class Main {
                     }
                 });
                 JPanel panel = new JPanel();
-                JLabel lab = new JLabel("<html><p align=\"center\">Студент 4 курса . группы ИП-613<br />Плотников</p></html>");
+                JLabel lab = new JLabel("<html><p align=\"center\">Студент 4 курса . группы ИП-613<br />Плотников А.В.</p></html>");
                 panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
                 panel.add(Box.createHorizontalGlue());
                 panel.add(lab);
@@ -287,7 +287,29 @@ public class Main {
                 myWindow.setResizable(false);
             }
         });
+        JMenuItem notet = new JMenuItem(new AbstractAction("Правила") {
+            public void actionPerformed(ActionEvent e) {
+                glav.setEnabled(false);
+                JFrame myWindow = new JFrame("Правила");
+                myWindow.addWindowListener(new WindowAdapter() {
+                    public void windowClosing(WindowEvent e) {
+                        glav.setEnabled(true);
+                    }
+                });
+                JPanel panel = new JPanel();
+                JLabel lab = new JLabel("<html><p>Ввод производить через пробел, запрещенные символы:скобки, символы не принадлежащие латинице, не больше 1 символа<br /></p></html>");
+                panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+                panel.add(Box.createHorizontalGlue());
+                panel.add(lab);
+                panel.add(Box.createHorizontalGlue());
+                myWindow.setContentPane(panel);
+                myWindow.setVisible(true);
+                myWindow.setSize(220, 100);
+                myWindow.setResizable(false);
+            }
+        });
         file.add(avtor);
+        file.add(notet);
         file.add(tema);
         return file;
     }
